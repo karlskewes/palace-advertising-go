@@ -1,0 +1,55 @@
+## kskewes palace-advertising-go
+
+env:
+- CGO_ENABLED=0
+- GOARCH=amd64
+- GOOS=linux
+
+release:
+  # Comment out to enable publishing
+  disable: true
+
+builds:
+- id: palace-advertising-go
+  binary: palace-advertising-go
+  main: ./cmd/
+  ldflags: -X main.VERSION={{.Version}}
+  goarch: ["amd64"]
+  goos: ["linux"]
+
+  #dockers:
+  #  goos: linux
+  #  binaries:
+  #  - palace-advertising-go
+  #  dockerfile: ./docker/Dockerfile
+  #  image_templates:
+  #  - kskewes/palace-advertising-go:latest
+  #  - kskewes/palace-advertising-go:latest-amd64
+  #  - kskewes/palace-advertising-go:{{ .Version }}
+  #  - kskewes/palace-advertising-go:{{ .Version }}-amd64
+  #  # Comment below out to push to configured repository
+  #  skip_push: true
+
+archives:
+- id: palace-advertising-go
+  replacements:
+    darwin: Darwin
+    linux: Linux
+    windows: Windows
+  format_overrides:
+  - goos: windows
+    format: zip
+
+checksum:
+  name_template: 'checksums.txt'
+
+snapshot:
+  name_template: "{{ .FullCommit }}"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
+
