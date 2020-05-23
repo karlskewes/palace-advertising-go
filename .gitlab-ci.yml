@@ -9,6 +9,7 @@ stages:
 .go-template:
   before_script:
   - echo "Job ${CI_JOB_NAME}"
+  - pwd
   - ls
   image:
     name: golang:1.14-buster
@@ -52,5 +53,5 @@ deploy:
   only:
     refs:
     - master
-  script: 
+  script:
   - make snapshot

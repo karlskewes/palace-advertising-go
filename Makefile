@@ -1,7 +1,9 @@
 GORELEASER_BIN = ./bin/goreleaser
 GOLANGCI_LINT_VERSION = v1.27.0
+JQ_URL = https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+GO_SWAGGER_URL = https://github.com/go-swagger/go-swagger/releases/download/v0.23.0/swagger_linux_amd64
 
-SWAGGER_BIN = ./swagger
+SWAGGER_BIN = $${GOPATH}/bin/swagger
 SWAGGER_URL_ADVERTISING = https://api.swaggerhub.com/apis/Palace/Advertising_Integration/1.0.0/
 
 # Run docker image, mount in git repo, reset image's entrypoint so we can specify
@@ -16,12 +18,9 @@ dep: ## Install dependencies
 	# binary will be $(go env GOPATH)/bin/golangci-lint
 	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | \
 		sh -s -- -b $${GOPATH}/bin $(GOLANGCI_LINT_VERSION)
+	curl -o $(SWAGGER_BIN) -L $(GO_SWAGGER_URL) && chmod +x $(SWAGGER_BIN)
 	ls -l $${GOPATH}/bin
 	go get -v -d ./...
-	download_url=$(shell curl -s https://api.github.com/repos/go-swagger/go-swagger/releases/latest | \
-				 jq -r '.assets[] | select(.name | contains("'"$(shell uname | tr '[:upper:]' '[:lower:]')"'_amd64")) | .browser_download_url'); \
-				 curl -o swagger -L'#' "$${download_url}"; \
-				 chmod +x swagger
 
 .PHONY: test
 test: ## Test code
