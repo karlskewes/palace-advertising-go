@@ -14,9 +14,8 @@ all: help
 
 .PHONY: dep
 dep: ## Install dependencies
-	curl -sfL https://install.goreleaser.com/github.com/goreleaser/goreleaser.sh | sh
-	mv ./bin/goreleaser $(GORELEASER_BIN)
-	# binary will be $(go env GOPATH)/bin/golangci-lint
+	curl -sfL https://install.goreleaser.com/github.com/goreleaser/goreleaser.sh | \
+		sh -s -- -b $${GOPATH}/bin
 	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | \
 		sh -s -- -b $${GOPATH}/bin $(GOLANGCI_LINT_VERSION)
 	curl -o $(GO_SWAGGER_BIN) -L $(GO_SWAGGER_URL) && chmod +x $(GO_SWAGGER_BIN)
@@ -34,7 +33,12 @@ test: ## Test code
 
 .PHONY: clean
 clean: ## Clean artifacts directory
-	$(RM) -r dist/
+	$(RM) -r dist/*
+
+.PHONY: build
+build: ## Build example(s)
+	mkdir -p dist
+	go build -o dist ./examples/...
 
 .PHONY: snapshot
 snapshot: clean dep ## Generate a snapshot release.

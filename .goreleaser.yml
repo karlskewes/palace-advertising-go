@@ -12,7 +12,7 @@ release:
 builds:
 - id: palace-advertising-go
   binary: palace-advertising-go
-  main: ./cmd/
+  main: ./examples/basic_client/
   ldflags: -X main.VERSION={{.Version}}
   goarch: ["amd64"]
   goos: ["linux"]
