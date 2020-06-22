@@ -46,14 +46,14 @@ All 'Available Properties' with detailed data
 
 */
 type V2AvailablePropertiesOK struct {
-	Payload []*models.AvailablePropertyDetails
+	Payload []*models.V2AvailablePropertyDetails
 }
 
 func (o *V2AvailablePropertiesOK) Error() string {
 	return fmt.Sprintf("[GET /v2AvailableProperties/JSON][%d] v2AvailablePropertiesOK  %+v", 200, o.Payload)
 }
 
-func (o *V2AvailablePropertiesOK) GetPayload() []*models.AvailablePropertyDetails {
+func (o *V2AvailablePropertiesOK) GetPayload() []*models.V2AvailablePropertyDetails {
 	return o.Payload
 }
 

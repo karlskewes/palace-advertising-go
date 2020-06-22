@@ -45,20 +45,20 @@ func NewV2PreviousAvailablePropertyOK() *V2PreviousAvailablePropertyOK {
 Withdrawn or leased details of a previous 'Available Property'
 */
 type V2PreviousAvailablePropertyOK struct {
-	Payload *models.AvailablePropertyPrevious
+	Payload *models.V2AvailablePropertyPrevious
 }
 
 func (o *V2PreviousAvailablePropertyOK) Error() string {
 	return fmt.Sprintf("[GET /v2PreviousAvailableProperty/JSON/{PropertyCode}][%d] v2PreviousAvailablePropertyOK  %+v", 200, o.Payload)
 }
 
-func (o *V2PreviousAvailablePropertyOK) GetPayload() *models.AvailablePropertyPrevious {
+func (o *V2PreviousAvailablePropertyOK) GetPayload() *models.V2AvailablePropertyPrevious {
 	return o.Payload
 }
 
 func (o *V2PreviousAvailablePropertyOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
-	o.Payload = new(models.AvailablePropertyPrevious)
+	o.Payload = new(models.V2AvailablePropertyPrevious)
 
 	// response payload
 	if err := consumer.Consume(response.Body(), o.Payload); err != nil && err != io.EOF {

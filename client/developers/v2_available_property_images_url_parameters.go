@@ -65,6 +65,11 @@ type V2AvailablePropertyImagesURLParams struct {
 
 	*/
 	PropertyCode string
+	/*Encrypt
+	  'encrypt' indicates if the URL image links to be returned are links with 'http' or encrypted 'https'.  The options are 'yes' or 'no'.<BR><BR> NOTE: The following is an example of a request using the the 'encrypt' parameter...<BR><BR>https://api.getpalace.com/Service.svc/RestService/v2AvailablePropertyImagesURL/JSON/RBPR000005?encrypt=yes
+
+	*/
+	Encrypt *string
 
 	timeout    time.Duration
 	Context    context.Context
@@ -115,6 +120,17 @@ func (o *V2AvailablePropertyImagesURLParams) SetPropertyCode(propertyCode string
 	o.PropertyCode = propertyCode
 }
 
+// WithEncrypt adds the encrypt to the v2 available property images URL params
+func (o *V2AvailablePropertyImagesURLParams) WithEncrypt(encrypt *string) *V2AvailablePropertyImagesURLParams {
+	o.SetEncrypt(encrypt)
+	return o
+}
+
+// SetEncrypt adds the encrypt to the v2 available property images URL params
+func (o *V2AvailablePropertyImagesURLParams) SetEncrypt(encrypt *string) {
+	o.Encrypt = encrypt
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *V2AvailablePropertyImagesURLParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -126,6 +142,22 @@ func (o *V2AvailablePropertyImagesURLParams) WriteToRequest(r runtime.ClientRequ
 	// path param PropertyCode
 	if err := r.SetPathParam("PropertyCode", o.PropertyCode); err != nil {
 		return err
+	}
+
+	if o.Encrypt != nil {
+
+		// query param encrypt
+		var qrEncrypt string
+		if o.Encrypt != nil {
+			qrEncrypt = *o.Encrypt
+		}
+		qEncrypt := qrEncrypt
+		if qEncrypt != "" {
+			if err := r.SetQueryParam("encrypt", qEncrypt); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	if len(res) > 0 {

@@ -45,14 +45,14 @@ func NewV2AvailablePropertyImagesOK() *V2AvailablePropertyImagesOK {
 Images (Base64 encoded) and meta data related to 'Available Property'
 */
 type V2AvailablePropertyImagesOK struct {
-	Payload []*models.AvailablePropertyImages
+	Payload []*models.V2AvailablePropertyImages
 }
 
 func (o *V2AvailablePropertyImagesOK) Error() string {
 	return fmt.Sprintf("[GET /v2AvailablePropertyImages/JSON/{PropertyCode}][%d] v2AvailablePropertyImagesOK  %+v", 200, o.Payload)
 }
 
-func (o *V2AvailablePropertyImagesOK) GetPayload() []*models.AvailablePropertyImages {
+func (o *V2AvailablePropertyImagesOK) GetPayload() []*models.V2AvailablePropertyImages {
 	return o.Payload
 }
 

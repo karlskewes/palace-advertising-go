@@ -4,7 +4,7 @@ GOLANGCI_LINT_BIN = $${GOPATH}/bin/golangci-lint
 JQ_URL = https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
 GO_SWAGGER_URL = https://github.com/go-swagger/go-swagger/releases/download/v0.23.0/swagger_linux_amd64
 GO_SWAGGER_BIN = $${GOPATH}/bin/swagger
-SWAGGER_URL_ADVERTISING = https://api.swaggerhub.com/apis/Palace/Advertising_Integration/1.0.0/
+SWAGGER_URL_ADVERTISING = https://api.swaggerhub.com/apis/Palace/Advertising_Integration/2.0.0/
 
 # Run docker image, mount in git repo, reset image's entrypoint so we can specify
 DOCKER_RUN := docker run --rm -v $(PWD):/opt --workdir /opt --entrypoint=""
