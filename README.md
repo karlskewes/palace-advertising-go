@@ -2,7 +2,7 @@
 
 [![build](https://gitlab.com/kskewes/palace-advertising-go/badges/master/pipeline.svg)](https://gitlab.com/kskewes/palace-advertising-go)
 
-palace-advertising-go is an unofficial Go client library for accessing the [Palace Advertising Integration API](https://app.swaggerhub.com/apis-docs/Palace/Advertising_Integration/1.0.0#/)
+`palace-advertising-go` is an unofficial Go client library for accessing the [Palace Advertising Integration API](https://app.swaggerhub.com/apis-docs/Palace/Advertising_Integration/2.0.0#/)
 
 ## Installation
 
@@ -15,14 +15,18 @@ go get -u gitlab.com/kskewes/palace-advertising-go
 Then import it using:
 ```go
 import (
-    "gitlab.com/kskewes/palace-advertising-go"
+	apiclient "gitlab.com/kskewes/palace-advertising-go/client"
 )
 ```
 
-## Documentation
+See [examples](./examples).
 
-## Usage
+## Documentation
 
 ## Contribution
 
+PR's welcome, please create an issue first.
+
 ## Test
+
+WIP
