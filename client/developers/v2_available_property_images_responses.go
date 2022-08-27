@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"gitlab.com/kskewes/palace-advertising-go/models"
+	"github.com/karlskewes/palace-advertising-go/models"
 )
 
 // V2AvailablePropertyImagesReader is a Reader for the V2AvailablePropertyImages structure.

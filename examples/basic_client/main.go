@@ -7,7 +7,7 @@ import (
 
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
-	apiclient "gitlab.com/kskewes/palace-advertising-go/client"
+	apiclient "github.com/karlskewes/palace-advertising-go/client"
 )
 
 func main() {

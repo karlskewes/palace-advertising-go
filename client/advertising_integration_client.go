@@ -10,7 +10,7 @@ import (
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
-	"gitlab.com/kskewes/palace-advertising-go/client/developers"
+	"github.com/karlskewes/palace-advertising-go/client/developers"
 )
 
 // Default advertising integration HTTP client.

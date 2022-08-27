@@ -1,9 +1,9 @@
-GORELEASER_BIN = $${GOPATH}/bin/goreleaser
+GORELEASER_BIN = /tmp/goreleaser
 GOLANGCI_LINT_VERSION = v1.27.0
-GOLANGCI_LINT_BIN = $${GOPATH}/bin/golangci-lint
+GOLANGCI_LINT_BIN = /tmp/golangci-lint
 JQ_URL = https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
 GO_SWAGGER_URL = https://github.com/go-swagger/go-swagger/releases/download/v0.23.0/swagger_linux_amd64
-GO_SWAGGER_BIN = $${GOPATH}/bin/swagger
+GO_SWAGGER_BIN = /tmp/swagger
 SWAGGER_URL_ADVERTISING = https://api.swaggerhub.com/apis/Palace/Advertising_Integration/2.0.0/
 
 # Run docker image, mount in git repo, reset image's entrypoint so we can specify
@@ -15,11 +15,10 @@ all: help
 .PHONY: dep
 dep: ## Install dependencies
 	curl -sfL https://install.goreleaser.com/github.com/goreleaser/goreleaser.sh | \
-		sh -s -- -b $${GOPATH}/bin
+		sh -s -- -b /tmp
 	curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | \
-		sh -s -- -b $${GOPATH}/bin $(GOLANGCI_LINT_VERSION)
+		sh -s -- -b /tmp $(GOLANGCI_LINT_VERSION)
 	curl -o $(GO_SWAGGER_BIN) -L $(GO_SWAGGER_URL) && chmod +x $(GO_SWAGGER_BIN)
-	ls -l $${GOPATH}/bin
 	go get -v -d ./...
 
 .PHONY: test
