@@ -1,5 +1,5 @@
 GORELEASER_BIN = /tmp/goreleaser
-GOLANGCI_LINT_VERSION = v1.27.0
+GOLANGCI_LINT_VERSION = v1.49.0
 GOLANGCI_LINT_BIN = /tmp/golangci-lint
 JQ_URL = https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
 GO_SWAGGER_URL = https://github.com/go-swagger/go-swagger/releases/download/v0.23.0/swagger_linux_amd64
