@@ -1,4 +1,4 @@
-module gitlab.com/kskewes/palace-advertising-go
+module github.com/karlskewes/palace-advertising-go
 
 go 1.14
 
